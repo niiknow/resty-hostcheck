@@ -6,7 +6,7 @@ Use in nginx host validation, such as/can be use-with [lua-resty-auto-ssl](https
 ```nginx
   # Initial setup tasks.
   init_by_lua_block {
-  	serverip = "1.2.3.4"
+    serverip = "1.2.3.4"
     auto_ssl = (require "resty.auto-ssl").new()
     hc = (require "resty.hostcheck")({ip = serverip, nameservers = {"8.8.8.8", {"8.8.4.4", 53} }})
 
