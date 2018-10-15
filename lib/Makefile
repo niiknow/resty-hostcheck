@@ -5,17 +5,16 @@ test:
 	busted -c spec
 
 local: build
-	luarocks make --force --local hostcheck-dev-1.rockspec
+	luarocks make --force --local resty-hostcheck-dev-1.rockspec
 
 global: build
-	sudo luarocks make hostcheck-dev-1.rockspec
+	sudo luarocks make resty-hostcheck-dev-1.rockspec
 
 build:
-	moonc *.moon
-	moonc hostcheck
+	moonc resty
 
 watch: build
-	moonc -w hostcheck
+	moonc -w resty
 
 clean: build
 	rm $$(find ./ | grep \.lua$$)
@@ -23,8 +22,6 @@ clean: build
 init:
 	luarocks install busted
 	luarocks install moonscript
-	luarocks install resty-dns-resolver
-	luarocks install resty-lrucache
 
 doc: clean
 	ldoc .

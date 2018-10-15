@@ -26,7 +26,7 @@ dependencies = {
 build = {
 	type = "builtin",
 	modules = {
-		["hostcheck"] = "lib/resty/hostcheck/init.lua"
+		["hostcheck"] = "lib/resty/hostcheck.lua"
 	}
 }
 

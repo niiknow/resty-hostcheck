@@ -10,8 +10,9 @@ INSTALL ?= install
 all: build ;
 
 install: all
-	$(INSTALL) -d $(DESTDIR)/$(LUA_LIB_DIR)/hostcheck
-	$(INSTALL) lib/hostcheck/*.* $(DESTDIR)/$(LUA_LIB_DIR)/hostcheck
+	$(INSTALL) -d $(DESTDIR)/$(LUA_LIB_DIR)/resty/hostcheck
+	$(INSTALL) lib/resty/*.* $(DESTDIR)/$(LUA_LIB_DIR)/resty
+	$(INSTALL) lib/resty/hostcheck/*.* $(DESTDIR)/$(LUA_LIB_DIR)/resty/hostcheck
 
 test: all
 	PATH=$(OPENRESTY_PREFIX)/nginx/sbin:$$PATH prove -I../test-nginx/lib -r t

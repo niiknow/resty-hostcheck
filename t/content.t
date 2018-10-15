@@ -27,7 +27,7 @@ __DATA__
 --- config
 	location /t {
 		content_by_lua '
-			local hostcheck = require "hostcheck"
+			local hostcheck = require "resty.hostcheck"
 			local val, err  = hostcheck.oneip("192.138.189.150", "noogen.org")
 			ngx.say(val)
 		';

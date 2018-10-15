@@ -1,5 +1,5 @@
-_VERSION  = require "hostcheck.version"
-dns       = require "hostcheck.dns"
+_VERSION  = require "resty.hostcheck.version"
+dns       = require "resty.hostcheck.dns"
 
 import resolve from dns
 

@@ -1,5 +1,5 @@
-local _VERSION = require("hostcheck.version")
-local dns = require("hostcheck.dns")
+local _VERSION = require("resty.hostcheck.version")
+local dns = require("resty.hostcheck.dns")
 local resolve
 resolve = dns.resolve
 local oneip
