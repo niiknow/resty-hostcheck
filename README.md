@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/niiknow/resty-hostcheck.svg?branch=master)](https://travis-ci.org/niiknow/resty-hostcheck)
 # resty-hostcheck
 > Host validation for openresty
 
