@@ -2,8 +2,8 @@ local _VERSION = require("hostcheck.version")
 local dns = require("hostcheck.dns")
 local resolve
 resolve = dns.resolve
-local checkone
-checkone = function(ip, host)
+local oneip
+oneip = function(ip, host)
   local answers, err = resolve(host)
   if not answers then
     return nil, error("failed to resolve dns: " .. (err or "unknown"))
@@ -17,6 +17,6 @@ checkone = function(ip, host)
   return nil, answers
 end
 return {
-  checkone = checkone,
+  oneip = oneip,
   _VERSION = _VERSION
 }

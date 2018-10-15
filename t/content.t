@@ -28,7 +28,7 @@ __DATA__
 	location /t {
 		content_by_lua '
 			local hostcheck = require "hostcheck"
-			local val, err  = hostcheck.checkone("192.138.189.150", "noogen.org")
+			local val, err  = hostcheck.oneip("192.138.189.150", "noogen.org")
 			ngx.say(val)
 		';
 	}

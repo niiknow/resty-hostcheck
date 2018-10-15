@@ -3,7 +3,7 @@ dns       = require "hostcheck.dns"
 
 import resolve from dns
 
-checkone = (ip, host) ->
+oneip = (ip, host) ->
     answers, err = resolve(host)
     if not answers
         return nil, error("failed to resolve dns: " .. (err or "unknown"))
@@ -14,4 +14,4 @@ checkone = (ip, host) ->
 
     nil, answers
 
-{ :checkone , :_VERSION }
+{ :oneip , :_VERSION }

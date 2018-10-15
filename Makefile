@@ -13,13 +13,13 @@ install: all
 	$(INSTALL) -d $(DESTDIR)/$(LUA_LIB_DIR)/hostcheck
 	$(INSTALL) lib/hostcheck/*.* $(DESTDIR)/$(LUA_LIB_DIR)/hostcheck
 
-test-resty: all
+test: all
 	PATH=$(OPENRESTY_PREFIX)/nginx/sbin:$$PATH prove -I../test-nginx/lib -r t
 
 build:
 	cd lib && $(MAKE) build
 
-test:
+test-spec:
 	cd lib && $(MAKE) test
 
 clean:
