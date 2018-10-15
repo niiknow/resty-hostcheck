@@ -18,6 +18,7 @@ a_records_and_max_ttl = function(answers)
       end
     end
   end
+  table.sort(addresses)
   return addresses, ttl
 end
 resolve = function(host, nameservers)

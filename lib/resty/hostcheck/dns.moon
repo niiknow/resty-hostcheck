@@ -9,6 +9,7 @@ if (not cache)
     return nil, error("failed to create the cache: " .. (err or "unknown"))
 
 local *
+
 a_records_and_max_ttl = (answers) ->
     addresses = {}
     ttl = MAXIMUM_TTL_VALUE
@@ -19,6 +20,7 @@ a_records_and_max_ttl = (answers) ->
             if ttl > ans.ttl
                 ttl = ans.ttl
 
+    table.sort(addresses)
     addresses, ttl
 
 resolve = (host, nameservers = nil) ->
