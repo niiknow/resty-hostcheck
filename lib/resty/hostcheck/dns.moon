@@ -21,7 +21,9 @@ a_records_and_max_ttl = (answers) ->
 
     addresses, ttl
 
-resolve = (host) ->
+resolve = (host, nameservers = nil) ->
+    if (nameservers == nil)
+        nameservers = {"8.8.8.8", {"8.8.4.4", 53} }
     cached_addresses = cache\get(host)
     if cached_addresses
         message = string.format(
@@ -34,7 +36,7 @@ resolve = (host) ->
         return cached_addresses
 
     r, err = resolver\new(
-        nameservers: {"8.8.8.8", {"8.8.4.4", 53} },
+        nameservers: nameservers,
         retrans: 5
         timeout: 2000  -- 2 sec
     )

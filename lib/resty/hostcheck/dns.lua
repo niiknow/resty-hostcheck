@@ -20,7 +20,19 @@ a_records_and_max_ttl = function(answers)
   end
   return addresses, ttl
 end
-resolve = function(host)
+resolve = function(host, nameservers)
+  if nameservers == nil then
+    nameservers = nil
+  end
+  if (nameservers == nil) then
+    nameservers = {
+      "8.8.8.8",
+      {
+        "8.8.4.4",
+        53
+      }
+    }
+  end
   local cached_addresses = cache:get(host)
   if cached_addresses then
     local message = string.format("addresses %s for host %s was resolved from cache", table.concat(cached_addresses, ", "), host)
@@ -29,13 +41,7 @@ resolve = function(host)
   end
   local r
   r, err = resolver:new({
-    nameservers = {
-      "8.8.8.8",
-      {
-        "8.8.4.4",
-        53
-      }
-    }
+    nameservers = nameservers
   }, {
     retrans = 5
   }, {

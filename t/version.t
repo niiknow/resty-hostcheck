@@ -27,7 +27,7 @@ __DATA__
 --- config
 	location /t {
 		content_by_lua '
-			local hc = require "resty.hostcheck"
+			local hc = (require "resty.hostcheck")()
 			ngx.say(hc._VERSION)
 		';
 	}

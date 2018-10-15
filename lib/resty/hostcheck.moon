@@ -3,15 +3,29 @@ dns       = require "resty.hostcheck.dns"
 
 import resolve from dns
 
-oneip = (ip, host) ->
-    answers, err = resolve(host)
-    if not answers
-        return nil, error("failed to resolve dns: " .. (err or "unknown"))
+class HostCheck
+    new: (opts={}) =>
+        @_VERSION = _VERSION
+        opts = opts or {}
+        defOpts = {
+            ip: "127.0.0.1",
+            nameservers: {"8.8.8.8", {"8.8.4.4", 53} }
+        }
+        opts.ip = opts.ip or defOpts.ip
+        opts.nameservers = opts.nameservers or defOpts.nameservers
+        @options = opts
 
-    for item in *answers
-        if (item == ip)
-            return item
+    oneip: (host, ip = nil) =>
+        ip = ip or @options.ip
+        answers, err = resolve(host, @options.nameservers)
 
-    nil, answers
+        if not answers
+            return nil, error("failed to resolve dns: " .. (err or "unknown"))
 
-{ :oneip , :_VERSION }
+        for item in *answers
+            if (item == ip)
+                return item
+
+        nil, answers
+
+HostCheck
