@@ -28,7 +28,7 @@ __DATA__
 	location /t {
 		content_by_lua '
 			local hostcheck = require "resty.hostcheck"
-			local hc = hostcheck({ip = "192.138.189.150", nameservers = {"8.8.8.8", {"8.8.4.4", 53} }})
+			local hc = (require "resty.hostcheck")({ip = "192.138.189.150", nameservers = {"8.8.8.8", {"8.8.4.4", 53} }})
 			local val, err  = hc:oneip("noogen.org")
 			ngx.say(val)
 		';
