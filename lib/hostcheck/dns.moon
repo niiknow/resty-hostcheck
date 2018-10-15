@@ -25,8 +25,11 @@ resolve = (host) ->
     cached_addresses = cache\get(host)
     if cached_addresses
         message = string.format(
-        "addresses %s for host %s was resolved from cache",
-        table.concat(cached_addresses, ", "), host)
+            "addresses %s for host %s was resolved from cache",
+            table.concat(cached_addresses, ", "),
+            host
+        )
+
         ngx.log(ngx.INFO, message)
         return cached_addresses
 
