@@ -1,12 +1,12 @@
 package = "resty-hostcheck"
-version = "0.2.0-1"
+version = "0.3.0-1"
 source = {
 	url = "git://github.com/niiknow/resty-hostcheck.git",
-	tag = "v0.2.0"
+	tag = "v0.3.0"
 }
 description = {
 	summary = "Host validation for openresty",
-	homepage = "https://niiknow.github.io/resty-hostcheck",
+	homepage = "https://github.com/niiknow/resty-hostcheck",
 	maintainer = "Tom Noogen <friends@niiknow.org>",
 	license = "MIT"
 }
