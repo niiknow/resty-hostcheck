@@ -5,7 +5,7 @@ LUA_INCLUDE_DIR ?= $(PREFIX)/include
 LUA_LIB_DIR ?=     $(PREFIX)/lib/lua/$(LUA_VERSION)
 INSTALL ?= install
 
-.PHONY: all test test-moon install build
+.PHONY: all install test build local global test-spec clean doc
 
 all: build ;
 
@@ -19,6 +19,12 @@ test: all
 
 build:
 	cd lib && $(MAKE) build
+
+local: build
+	luarocks make --force --local resty-hostcheck-0.2-0.rockspec
+
+global: build
+	sudo luarocks make resty-hostcheck-0.2-0.rockspec
 
 test-spec:
 	cd lib && $(MAKE) test

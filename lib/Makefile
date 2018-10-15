@@ -1,14 +1,8 @@
 
-.PHONY: test local build global watch clean
+.PHONY: test build watch clean init doc
 
 test:
 	busted -c spec
-
-local: build
-	luarocks make --force --local resty-hostcheck-dev-1.rockspec
-
-global: build
-	sudo luarocks make resty-hostcheck-dev-1.rockspec
 
 build:
 	moonc resty
