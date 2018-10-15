@@ -1,8 +1,7 @@
 package = "resty-hostcheck"
-version = "0.2-0"
+version = "git-1"
 source = {
-	url = "git://github.com/niiknow/resty-hostcheck.git",
-	tag = "v0.2"
+	url = "git://github.com/niiknow/resty-hostcheck.git"
 }
 description = {
 	summary = "Host validation for openresty",
@@ -11,7 +10,8 @@ description = {
 	license = "MIT"
 }
 dependencies = {
-	"lua >= 5.1"
+	"lua-resty-dns",
+	"lua-resty-lrucache",
 }
 build = {
 	type = "builtin",

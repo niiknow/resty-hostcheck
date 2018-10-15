@@ -21,10 +21,10 @@ build:
 	cd lib && $(MAKE) build
 
 local: build
-	luarocks make --force --local resty-hostcheck-0.2-0.rockspec
+	luarocks make --force --local resty-hostcheck-git-1.rockspec
 
 global: build
-	sudo luarocks make resty-hostcheck-0.2-0.rockspec
+	sudo luarocks make resty-hostcheck-git-1.rockspec
 
 test-spec:
 	cd lib && $(MAKE) test
