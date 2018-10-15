@@ -35,11 +35,7 @@ do
       local defOpts = {
         ip = "127.0.0.1",
         nameservers = {
-          "8.8.8.8",
-          {
-            "8.8.4.4",
-            53
-          }
+          "127.0.0.1"
         }
       }
       opts.ip = opts.ip or defOpts.ip

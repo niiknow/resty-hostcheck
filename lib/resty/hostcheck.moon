@@ -9,7 +9,7 @@ class HostCheck
         opts = opts or {}
         defOpts = {
             ip: "127.0.0.1",
-            nameservers: {"8.8.8.8", {"8.8.4.4", 53} }
+            nameservers: {"127.0.0.1"}
         }
         opts.ip = opts.ip or defOpts.ip
         opts.nameservers = opts.nameservers or defOpts.nameservers

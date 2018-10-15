@@ -23,7 +23,8 @@ a_records_and_max_ttl = (answers) ->
 
 resolve = (host, nameservers = nil) ->
     if (nameservers == nil)
-        nameservers = {"8.8.8.8", {"8.8.4.4", 53} }
+        nameservers = {"127.0.0.1"}
+
     cached_addresses = cache\get(host)
     if cached_addresses
         message = string.format(

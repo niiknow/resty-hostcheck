@@ -26,11 +26,7 @@ resolve = function(host, nameservers)
   end
   if (nameservers == nil) then
     nameservers = {
-      "8.8.8.8",
-      {
-        "8.8.4.4",
-        53
-      }
+      "127.0.0.1"
     }
   end
   local cached_addresses = cache:get(host)
