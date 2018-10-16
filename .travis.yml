@@ -47,6 +47,7 @@ install:
   - popd
   - export PATH=$OPENRESTY_PREFIX/nginx/sbin:$LUAROCKS_PREFIX/bin:$PATH
   - sudo luarocks install luacheck > build.log 2>&1 || (cat build.log && exit 1)
+  - make init
   - luarocks --version
   - nginx -V
 
