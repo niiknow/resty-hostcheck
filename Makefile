@@ -34,6 +34,9 @@ clean:
 	rm -rf t/servroot/
 	cd lib && $(MAKE) clean
 
+init:
+	cd lib && $(MAKE) init
+
 doc:
 	cd lib && $(MAKE) doc
 

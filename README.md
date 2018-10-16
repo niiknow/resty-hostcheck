@@ -24,16 +24,9 @@ Use in nginx host validation, such as/can be use-with [lua-resty-auto-ssl](https
 ```
 
 # build and test
-osx, install lua/luarocks:
+osx, install lua, luarocks, and openresty:
 ```sh
-brew update
-brew install lua
-
-luarocks install busted
-luarocks install moonscript
-luarocks install luacov
-
-make install
+make init
 make test
 ```
 
