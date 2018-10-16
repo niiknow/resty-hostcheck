@@ -1,9 +1,9 @@
-OPENRESTY_PREFIX=/usr/local/openresty
-
-PREFIX ?=          /usr/local
+VERSION          = 0.3.2
+OPENRESTY_PREFIX =/usr/local/openresty
+PREFIX          ?=          /usr/local
 LUA_INCLUDE_DIR ?= $(PREFIX)/include
-LUA_LIB_DIR ?=     $(PREFIX)/lib/lua/$(LUA_VERSION)
-INSTALL ?= install
+LUA_LIB_DIR     ?=     $(PREFIX)/lib/lua/$(LUA_VERSION)
+INSTALL         ?= install
 
 .PHONY: all install test build local global test-spec clean doc
 
@@ -21,10 +21,10 @@ build:
 	cd lib && $(MAKE) build
 
 local: build
-	luarocks make --force --local resty-hostcheck-git-1.rockspec
+	luarocks make --force --local resty-hostcheck-master-1.rockspec
 
 global: build
-	sudo luarocks make resty-hostcheck-git-1.rockspec
+	sudo luarocks make resty-hostcheck-master-1.rockspec
 
 test-spec:
 	cd lib && $(MAKE) test
@@ -32,6 +32,12 @@ test-spec:
 clean:
 	rm -rf doc/
 	rm -rf t/servroot/
+	cd lib && $(MAKE) clean
 
 doc:
 	cd lib && $(MAKE) doc
+
+upload:
+	@rm -f *-0.**.rockspec*
+	@sed -e "s/master/$(VERSION)/g" resty-hostcheck-master-1.rockspec > resty-hostcheck-$(VERSION)-1.rockspec
+	@echo "luarocks upload resty-hostcheck-$(VERSION)-1.rockspec --api-key=?"

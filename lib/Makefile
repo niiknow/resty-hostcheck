@@ -1,7 +1,7 @@
 
 .PHONY: test build watch clean init doc
 
-test:
+test: build
 	busted -c spec
 
 build:
@@ -14,8 +14,9 @@ clean: build
 	rm $$(find ./ | grep \.lua$$)
 
 init:
-	luarocks install busted
-	luarocks install moonscript
+	sudo luarocks install busted
+	sudo luarocks install moonscript
+	sudo luarocks install luacov
 
 doc: clean
 	ldoc .
