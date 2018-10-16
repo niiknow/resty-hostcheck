@@ -1,4 +1,3 @@
-local _VERSION = require("resty.hostcheck.version")
 local dns = require("resty.hostcheck.dns")
 local resolve
 resolve = dns.resolve
@@ -30,7 +29,6 @@ do
       if opts == nil then
         opts = { }
       end
-      self._VERSION = _VERSION
       opts = opts or { }
       local defOpts = {
         ip = "127.0.0.1",

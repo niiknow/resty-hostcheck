@@ -5,7 +5,7 @@ source = {
 }
 description = {
 	summary = "Host validation for openresty",
-	homepage = "https://niiknow.github.io/resty-hostcheck",
+	homepage = "https://github.com/niiknow/resty-hostcheck",
 	maintainer = "Tom Noogen <friends@niiknow.org>",
 	license = "MIT"
 }
@@ -17,7 +17,6 @@ build = {
 	type = "builtin",
 	modules = {
 		["resty.hostcheck"] = "lib/resty/hostcheck.lua",
-		["resty.hostcheck.dns"] = "lib/resty/hostcheck/dns.lua",
-		["resty.hostcheck.version"] = "lib/resty/hostcheck/version.lua"
+		["resty.hostcheck.dns"] = "lib/resty/hostcheck/dns.lua"
 	}
 }

@@ -1,8 +1,8 @@
 package = "resty-hostcheck"
-version = "0.3.0-1"
+version = "0.3.1-1"
 source = {
 	url = "git://github.com/niiknow/resty-hostcheck",
-	tag = "0.3.0"
+	tag = "0.3.1"
 }
 description = {
 	summary = "Host validation for openresty",
@@ -18,7 +18,6 @@ build = {
 	type = "builtin",
 	modules = {
 		["resty.hostcheck"] = "lib/resty/hostcheck.lua",
-		["resty.hostcheck.dns"] = "lib/resty/hostcheck/dns.lua",
-		["resty.hostcheck.version"] = "lib/resty/hostcheck/version.lua"
+		["resty.hostcheck.dns"] = "lib/resty/hostcheck/dns.lua"
 	}
 }

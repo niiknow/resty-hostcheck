@@ -1,11 +1,9 @@
-_VERSION  = require "resty.hostcheck.version"
 dns       = require "resty.hostcheck.dns"
 
 import resolve from dns
 
 class HostCheck
     new: (opts={}) =>
-        @_VERSION = _VERSION
         opts = opts or {}
         defOpts = {
             ip: "127.0.0.1",
